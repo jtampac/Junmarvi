@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://junmarvitampac.github.io/sitemap.xml
