@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "cross-env GITHUB_PAGES=true next build",
-    "build:local": "next build",
+    "build": "next build",
+    "build:pages": "cross-env GITHUB_PAGES=true next build",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },

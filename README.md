@@ -9,9 +9,9 @@ TailwindCSS · Framer Motion.
 ```bash
 npm install
 npm run dev          # http://localhost:3000
-npm run build        # static export for GitHub Pages → out/ (base path /Junmarvi)
-npm run build:local  # server build for `npm start` on localhost
-npm start            # serve the build:local output
+npm run build        # native production build (Vercel / localhost `npm start`)
+npm run build:pages  # static export for GitHub Pages → out/ (base path /Junmarvi)
+npm start            # serve the `npm run build` output
 ```
 
 ## Before going live — 5-minute checklist
@@ -26,11 +26,13 @@ npm start            # serve the build:local output
    custom SVG schematic as its identity mark. To add real product
    screenshots, place them in `public/images/systems/` and extend the
    system brief page (`app/systems/[slug]/page.tsx`) with a gallery block.
-4. **Deploy** — every push to `main` triggers
-   `.github/workflows/deploy-pages.yml`, which builds the static export and
-   publishes it to https://jtampac.github.io/Junmarvi/ (repo setting:
-   Settings → Pages → Source → GitHub Actions). Self-host:
-   `npm run build:local && npm start` behind a reverse proxy.
+4. **Deploy** — Vercel is the primary host: import the repo (zero config,
+   native build) and set `NEXT_PUBLIC_SITE_URL` to the production domain so
+   canonical/OG metadata resolve correctly. GitHub Pages is the backup:
+   every push to `main` triggers `.github/workflows/deploy-pages.yml`,
+   which publishes the static export to https://jtampac.github.io/Junmarvi/
+   (repo setting: Settings → Pages → Source → GitHub Actions). Self-host:
+   `npm run build && npm start` behind a reverse proxy.
 
 ## Structure
 
