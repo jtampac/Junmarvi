@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { basePath } from "@/lib/site";
 
 /**
  * Hero portrait plate.
@@ -38,7 +39,7 @@ export default function PortraitFrame() {
         ) : (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
-            src="/images/portrait.jpg"
+            src={`${basePath}/images/portrait.jpg`}
             alt="Junmarvi Tampac"
             className="h-full w-full object-cover"
             onError={() => setMissing(true)}

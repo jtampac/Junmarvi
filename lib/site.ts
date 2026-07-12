@@ -1,9 +1,12 @@
+/** "/Junmarvi" when building for GitHub Pages, "" otherwise — prefix for raw /public asset URLs (next/link handles it automatically). */
+export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const site = {
   name: "Junmarvi Tampac",
   title: "Junmarvi Tampac — Enterprise Solutions Architect & AI-Directed Engineer",
   description:
     "Enterprise Solutions Architect, AI-Directed Software Engineer, and ERP & Operations Intelligence Specialist. A decade inside EPC and construction operations, now building the AI-powered platforms that solve those exact problems.",
-  url: "https://junmarvi.com",
+  url: "https://jtampac.github.io/Junmarvi",
   location: "Dubai, United Arab Emirates",
   email: "jtampac@proton.me",
   emailAlt: "jtampac@yahoo.com",
