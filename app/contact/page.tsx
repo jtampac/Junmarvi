@@ -24,13 +24,17 @@ const channels = [
     note: "Also monitored.",
     external: false,
   },
-  {
-    label: "Phone",
-    value: site.phone,
-    href: `tel:${site.phone.replace(/\s/g, "")}`,
-    note: "Direct line. Gulf Standard Time (GMT+4).",
-    external: false,
-  },
+  ...(site.phone
+    ? [
+        {
+          label: "Phone",
+          value: site.phone,
+          href: `tel:${site.phone.replace(/\s/g, "")}`,
+          note: "Direct line. Gulf Standard Time (GMT+4).",
+          external: false,
+        },
+      ]
+    : []),
   {
     label: "LinkedIn",
     value: "in/junmarvitampac",

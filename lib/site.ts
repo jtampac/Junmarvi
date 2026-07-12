@@ -7,7 +7,8 @@ export const site = {
   location: "Dubai, United Arab Emirates",
   email: "jtampac@proton.me",
   emailAlt: "jtampac@yahoo.com",
-  phone: "+971 55 129 5606",
+  // Kept out of the public repo — set NEXT_PUBLIC_CONTACT_PHONE in .env.local (inlined at build time).
+  phone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "",
   github: "https://github.com/jtampac",
   linkedin: "https://www.linkedin.com/in/junmarvitampac",
   availability:
