@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
 import Schematic from "@/components/Schematic";
+import StatusBadge from "@/components/StatusBadge";
 import { getSystem, systems } from "@/lib/systems";
 
 export function generateStaticParams() {
@@ -29,16 +30,17 @@ export default async function SystemBrief({ params }: { params: Promise<{ slug: 
       <div className="shell pb-14 pt-36 md:pt-44">
         <Reveal>
           <Link href="/systems" className="eyebrow link-quiet">
-            ← Systems registry
+            ← Systems
           </Link>
           <div className="mt-8 flex flex-wrap items-center gap-4 font-mono text-[11px] uppercase tracking-caps">
             <span className="rounded-full border border-line px-3 py-1 text-dim">{s.code}</span>
             <span className="text-dim">{s.domain}</span>
-            <span className="flex items-center gap-2 text-kawa">
-              <span className="status-dot online" aria-hidden /> {s.status}
-            </span>
+            <StatusBadge status={s.status} />
+            {s.independent && (
+              <span className="text-dim">Independent project</span>
+            )}
           </div>
-          <h1 className="mt-6 max-w-4xl font-display text-5xl leading-[1.02] text-body md:text-7xl">
+          <h1 className="mt-6 max-w-4xl font-display text-4xl leading-[1.05] text-body md:text-6xl">
             {s.name}
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-mist">{s.summary}</p>
@@ -49,9 +51,7 @@ export default async function SystemBrief({ params }: { params: Promise<{ slug: 
         <div className="panel overflow-hidden">
           <div className="flex items-center justify-between border-b border-line px-6 py-3 font-mono text-[10px] uppercase tracking-caps text-dim">
             <span>System schematic</span>
-            <span className="flex items-center gap-2 text-kawa">
-              <span className="status-dot online" aria-hidden /> Live
-            </span>
+            <span>Illustrative</span>
           </div>
           <div className="bg-ink-900/50 p-4 md:p-8">
             <Schematic kind={s.schematic} />
@@ -61,8 +61,12 @@ export default async function SystemBrief({ params }: { params: Promise<{ slug: 
 
       <section className="shell grid gap-14 pb-20 md:grid-cols-[0.9fr,1.1fr]">
         <Reveal>
-          <h2 className="eyebrow">Business problem</h2>
+          <h2 className="eyebrow">Problem addressed</h2>
           <p className="mt-5 text-lg leading-relaxed text-mist">{s.problem}</p>
+
+          <h2 className="eyebrow mt-12">Intended users</h2>
+          <p className="mt-5 leading-relaxed text-mist">{s.users}</p>
+
           <h2 className="eyebrow mt-12">Technologies</h2>
           <ul className="mt-5 flex flex-wrap gap-2">
             {s.technologies.map((t) => (
@@ -74,9 +78,9 @@ export default async function SystemBrief({ params }: { params: Promise<{ slug: 
         </Reveal>
 
         <Reveal delay={0.08}>
-          <h2 className="eyebrow">Architecture</h2>
+          <h2 className="eyebrow">Key capabilities</h2>
           <ul className="mt-5 space-y-4">
-            {s.architecture.map((a, i) => (
+            {s.capabilities.map((a, i) => (
               <li key={i} className="panel p-5">
                 <div className="flex gap-4">
                   <span className="font-mono text-[11px] text-pulse">{String(i + 1).padStart(2, "0")}</span>
@@ -91,28 +95,50 @@ export default async function SystemBrief({ params }: { params: Promise<{ slug: 
       <section className="hairline">
         <div className="shell grid gap-14 py-20 md:grid-cols-2">
           <Reveal>
-            <h2 className="eyebrow">Impact</h2>
-            <ul className="mt-5 space-y-5">
-              {s.impact.map((im, i) => (
+            <h2 className="eyebrow flex items-center gap-2">
+              <span className="status-dot dev" aria-hidden /> Currently working
+            </h2>
+            <ul className="mt-5 space-y-4">
+              {s.working.map((im, i) => (
                 <li key={i} className="flex gap-4">
-                  <span className="status-dot online mt-2 shrink-0" aria-hidden />
+                  <span className="status-dot dev mt-2 shrink-0" aria-hidden />
                   <p className="leading-relaxed text-mist">{im}</p>
                 </li>
               ))}
             </ul>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="eyebrow">Lessons learned</h2>
-            <blockquote className="mt-5 border-l border-pulse/60 pl-6 font-display text-2xl leading-relaxed text-body/90">
-              {s.lessons}
-            </blockquote>
+            <h2 className="eyebrow flex items-center gap-2">
+              <span className="status-dot proto" aria-hidden /> Under development
+            </h2>
+            <ul className="mt-5 space-y-4">
+              {s.roadmap.map((im, i) => (
+                <li key={i} className="flex gap-4">
+                  <span className="status-dot proto mt-2 shrink-0" aria-hidden />
+                  <p className="leading-relaxed text-mist">{im}</p>
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </div>
       </section>
 
+      {s.note && (
+        <section className="hairline">
+          <div className="shell py-16">
+            <Reveal>
+              <h2 className="eyebrow">Honest note</h2>
+              <blockquote className="mt-5 max-w-3xl border-l border-line-strong pl-6 text-lg leading-relaxed text-mist">
+                {s.note}
+              </blockquote>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
       <section className="hairline">
         <div className="shell flex flex-wrap items-center justify-between gap-6 py-14">
-          <p className="eyebrow">Next in registry</p>
+          <p className="eyebrow">Next system</p>
           <Link href={`/systems/${next.slug}`} className="btn-ghost">
             {next.name} <span aria-hidden>→</span>
           </Link>

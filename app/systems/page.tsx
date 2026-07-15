@@ -3,21 +3,22 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import Schematic from "@/components/Schematic";
+import StatusBadge from "@/components/StatusBadge";
 import { systems } from "@/lib/systems";
 
 export const metadata: Metadata = {
   title: "Systems",
   description:
-    "The heart of the practice: enterprise systems in production — Control Tower, Sentinel OS, inventory platforms, analytics suites, and ERP automation.",
+    "Independently developed systems and tools — the Junmarvi Systems Workspace, ADC Control Tower, Sentinel OS, Education Intelligence, and operational reporting tools. Each classified honestly by maturity.",
 };
 
 export default function SystemsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Systems registry"
-        title="Software that carries operational weight."
-        lede="Every system here exists because a real operation was bleeding time, money, or truth. Each nameplate opens a full brief: problem, architecture, impact, and what it taught me."
+        eyebrow="Systems"
+        title="Independently developed systems and tools."
+        lede="Each entry is an independent project, prototype, or internal tool — classified honestly by its current stage. Open any nameplate for the problem, intended users, status, what works now, and what is still under development."
       />
 
       <section className="shell grid gap-6 pb-24 md:grid-cols-2">
@@ -31,12 +32,9 @@ export default function SystemsPage() {
                 <Schematic kind={s.schematic} />
               </div>
               <div className="flex flex-1 flex-col p-7">
-                <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-caps">
+                <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[10px] uppercase tracking-caps">
                   <span className="text-dim">{s.code} · {s.domain}</span>
-                  <span className="flex items-center gap-2 text-kawa">
-                    <span className="status-dot online" aria-hidden />
-                    {s.status}
-                  </span>
+                  <StatusBadge status={s.status} />
                 </div>
                 <h2 className="mt-4 font-display text-3xl text-body">{s.name}</h2>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-mist">{s.summary}</p>

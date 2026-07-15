@@ -7,17 +7,17 @@ import { articles } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Writing on AI engineering, construction technology, ERP, operations, automation, security, and business intelligence.",
+    "Practical writing from direct work — operations systems, inventory and material control, reporting, data governance, system design, security controls, and AI-assisted development.",
 };
 
 const topics = [
-  "AI Engineering",
-  "Construction Technology",
-  "ERP",
   "Operations",
-  "Automation",
+  "Procurement",
+  "Reporting",
+  "Data Governance",
+  "System Design",
   "Security",
-  "Business Intelligence",
+  "AI-assisted Development",
 ];
 
 export default function InsightsPage() {
@@ -25,8 +25,8 @@ export default function InsightsPage() {
     <>
       <PageHeader
         eyebrow="Insights"
-        title="Field notes from the intersection."
-        lede="Where operations, data, and AI meet — written by someone accountable for all three. No hype, no recycled thought-leadership; just what production systems teach."
+        title="Practical notes from the actual work."
+        lede="Writing on operations, material control, reporting, system design, security controls, and AI-assisted development — drawn from building independent systems, not from recycled thought-leadership."
       />
 
       <div className="shell pb-12">

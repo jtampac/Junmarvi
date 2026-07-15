@@ -11,15 +11,15 @@ export default function NotFound() {
         This entry does not exist in the registry.
       </h1>
       <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">
-        The reconciliation engine checked twice. Whatever you were looking for
-        has either moved or never shipped.
+        Whatever you were looking for has either moved or does not exist. Let us
+        get you back to something real.
       </p>
       <div className="mt-10 flex gap-4">
         <Link href="/" className="btn-primary">
           Return home <span aria-hidden>→</span>
         </Link>
         <Link href="/systems" className="btn-ghost">
-          Systems registry
+          Systems
         </Link>
       </div>
     </div>

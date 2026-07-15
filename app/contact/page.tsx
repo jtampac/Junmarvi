@@ -6,8 +6,18 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a conversation about enterprise systems, operations intelligence, or AI platform engagements. Based in Dubai, working across the GCC.",
+    "Discuss operations systems, data and reporting, workflow automation, security and governance tooling, business websites, and internal tools. Based in the United Arab Emirates.",
 };
+
+const categories = [
+  "Operations Systems",
+  "Data and Reporting",
+  "Workflow Automation",
+  "Security and Governance",
+  "Business Websites",
+  "Internal Tools",
+  "System Prototypes",
+];
 
 const channels = [
   {
@@ -56,8 +66,8 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contact"
-        title="Bring me the operational problem. I will bring the system."
-        lede="The best first message is not a job title — it is a description of where your operation leaks time, money, or truth."
+        title="Describe the operational problem — that is the best place to start."
+        lede="A useful first message describes where your operation loses time, money, or accuracy. I will be honest about what is realistic to build and where the practical limits are."
       />
 
       <section className="shell grid gap-14 pb-24 md:grid-cols-[1.05fr,0.95fr]">
@@ -101,26 +111,26 @@ export default function ContactPage() {
           <Reveal delay={0.1}>
             <div className="panel p-7 md:p-9">
               <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-caps text-dim">
-                <span>Availability</span>
-                <span className="flex items-center gap-2 text-kawa">
-                  <span className="status-dot online" aria-hidden />
-                  Open
+                <span>Open to discuss</span>
+                <span className="flex items-center gap-2 text-mist">
+                  <span className="status-dot dev" aria-hidden />
+                  Available
                 </span>
               </div>
               <p className="mt-5 text-lg leading-relaxed text-mist">
                 {site.availability}
               </p>
-              <ul className="mt-7 space-y-3 font-mono text-[11px] uppercase tracking-caps text-mist">
-                <li className="flex items-center gap-3">
-                  <span className="text-pulse">▸</span> Enterprise systems architecture
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-pulse">▸</span> Operations & procurement intelligence
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-pulse">▸</span> AI platform engineering
-                </li>
+              <ul className="mt-7 grid grid-cols-1 gap-3 font-mono text-[11px] uppercase tracking-caps text-mist sm:grid-cols-2">
+                {categories.map((c) => (
+                  <li key={c} className="flex items-center gap-3">
+                    <span className="text-pulse">▸</span> {c}
+                  </li>
+                ))}
               </ul>
+              <p className="mt-6 text-xs leading-relaxed text-dim">
+                These are areas of work, not a guarantee of a specific outcome or
+                enterprise-scale delivery. Scope is agreed honestly per requirement.
+              </p>
             </div>
           </Reveal>
 
@@ -133,16 +143,14 @@ export default function ContactPage() {
                 {site.location}
               </p>
               <p className="mt-2 text-sm leading-relaxed text-dim">
-                On the ground in the GCC. Remote engagements worldwide;
-                Gulf Standard Time (GMT+4).
+                Based in the UAE; open to remote work. Gulf Standard Time (GMT+4).
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.26}>
             <p className="font-mono text-[10px] uppercase tracking-caps text-dim">
-              Response protocol · Inbound briefs acknowledged within one
-              business day.
+              Messages are usually answered within a couple of business days.
             </p>
           </Reveal>
         </div>
