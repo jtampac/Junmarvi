@@ -235,21 +235,36 @@ body.cursor-custom * {
   object-fit: cover;
 }
 
-/* neon dot that runs along the hoodie outline traced over the photo */
-.hoodie-trace {
+/* neon dots running along the photo frame edge (evenly spaced, chasing) */
+.edge-dot {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #cfe6ff;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 6px 1px rgba(77, 163, 255, 0.95),
+    0 0 14px 4px rgba(77, 163, 255, 0.7),
+    0 0 26px 8px rgba(77, 163, 255, 0.4);
+  animation: edgeRun 7s linear infinite;
   pointer-events: none;
-  overflow: visible;
 }
-.hoodie-dot {
-  fill: #cfe6ff;
-  filter:
-    drop-shadow(0 0 3px rgba(77, 163, 255, 0.95))
-    drop-shadow(0 0 8px rgba(77, 163, 255, 0.75))
-    drop-shadow(0 0 18px rgba(77, 163, 255, 0.45));
+@keyframes edgeRun {
+  0%   { top: 0%;   left: 0%; }
+  25%  { top: 0%;   left: 100%; }
+  50%  { top: 100%; left: 100%; }
+  75%  { top: 100%; left: 0%; }
+  100% { top: 0%;   left: 0%; }
+}
+/* reduced-motion: park the dots at spread-out points instead of animating */
+@media (prefers-reduced-motion: reduce) {
+  .edge-dot { animation: none; }
+  .edge-dot:nth-of-type(1) { top: 0%;   left: 15%; }
+  .edge-dot:nth-of-type(2) { top: 100%; left: 85%; }
+  .edge-dot:nth-of-type(3) { top: 60%;  left: 0%; }
 }
 
 /* article prose */
