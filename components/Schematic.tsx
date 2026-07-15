@@ -67,8 +67,8 @@ export default function Schematic({ kind }: { kind: string }) {
           <Wire d="M232 66 V130" tone={LINE} />
           <Wire d="M315 66 V143 H240" tone={LINE} />
           <Dot cx={330} cy={143} />
-          <text x={20} y={185} fontSize="9" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="2">CONTROL TOWER · LIVE</text>
-          <Dot cx={130} cy={181} tone={GREEN} />
+          <text x={20} y={185} fontSize="9" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="2">CONTROL TOWER · SCHEMATIC</text>
+          <Dot cx={175} cy={181} tone={BLUE} />
         </Frame>
       );
     case "shield":

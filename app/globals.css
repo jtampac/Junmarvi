@@ -83,11 +83,21 @@ body {
 }
 .status-dot.online {
   background: #75e44b;
-  box-shadow: 0 0 8px rgba(117, 228, 75, 0.7);
+  box-shadow: 0 0 6px rgba(117, 228, 75, 0.5);
 }
 .status-dot.alert {
   background: #ff5c5c;
-  box-shadow: 0 0 8px rgba(255, 92, 92, 0.7);
+  box-shadow: 0 0 6px rgba(255, 92, 92, 0.5);
+}
+/* Neutral status dots for project maturity — no glow, no "live" implication. */
+.status-dot.dev { background: #4da3ff; }
+.status-dot.proto { background: #d6a54a; }
+.status-dot.concept { background: #94a1bb; }
+.status-dot.neutral { background: #5e6b85; }
+
+/* Status badge — communicates maturity without a production/live claim. */
+.badge {
+  @apply inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 font-mono text-[10px] uppercase tracking-caps text-mist;
 }
 
 /* focus visibility */

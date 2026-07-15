@@ -25,7 +25,7 @@ export default function TerminalCard() {
     <div ref={ref} className="panel overflow-hidden font-mono text-[13px]">
       <div className="flex items-center justify-between border-b border-line px-5 py-3">
         <span className="text-[11px] uppercase tracking-caps text-mist">
-          current-focus · sentinel
+          current-focus
         </span>
         <span className="flex gap-1.5" aria-hidden>
           <span className="h-2.5 w-2.5 rounded-full border border-line-strong" />
@@ -49,8 +49,8 @@ export default function TerminalCard() {
             >
               <span className="text-pulse">▸</span>
               <span className="text-body/90">{f}</span>
-              <span className="ml-auto text-[10px] uppercase tracking-caps text-kawa">
-                active
+              <span className="ml-auto text-[10px] uppercase tracking-caps text-dim">
+                focus
               </span>
             </li>
           ))}

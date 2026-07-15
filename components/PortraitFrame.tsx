@@ -25,7 +25,7 @@ export default function PortraitFrame() {
             </span>
             <div className="text-center font-mono text-[10px] uppercase tracking-caps text-dim">
               <p>Junmarvi Tampac</p>
-              <p className="mt-1 text-pulse">Solutions Architect</p>
+              <p className="mt-1 text-pulse">Systems &amp; Operations Developer</p>
             </div>
             <div
               aria-hidden
@@ -51,8 +51,8 @@ export default function PortraitFrame() {
         />
       </div>
       <figcaption className="flex items-center justify-between px-2 pb-1 pt-3 font-mono text-[10px] uppercase tracking-caps text-dim">
-        <span>Operator → Architect</span>
-        <span className="text-kawa">EST. GCC</span>
+        <span>Operations → Systems</span>
+        <span className="text-mist">UAE</span>
       </figcaption>
     </figure>
   );

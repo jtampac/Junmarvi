@@ -31,7 +31,7 @@ export default function Nav() {
             J
           </span>
           <span className="hidden font-mono text-[11px] uppercase tracking-caps text-mist sm:block">
-            Junmarvi Tampac
+            Junmarvi
           </span>
         </Link>
 
@@ -50,9 +50,9 @@ export default function Nav() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <span className="status-dot online" aria-hidden />
+          <span className="status-dot dev" aria-hidden />
           <span className="font-mono text-[10px] uppercase tracking-caps text-mist">
-            Available · Dubai
+            Systems &amp; Operations · UAE
           </span>
         </div>
 
