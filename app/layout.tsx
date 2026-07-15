@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
+        <CustomCursor />
         <Nav />
         <main id="main">{children}</main>
         <Footer />

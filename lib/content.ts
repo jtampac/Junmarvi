@@ -91,14 +91,7 @@ export const employment: Role[] = [
     title: "Senior Material Controller · Data & Reporting",
     org: "ADC Energy Systems · UAE",
     detail:
-      "Responsible for the full life of a material — from take-off, through purchase order, into the warehouse on a goods receipt, and out to site on an issue. Day-to-day work covers procurement coordination, warehouse and inventory control, data reconciliation, operational reporting, and audit preparation across EPC and construction projects.",
-  },
-  {
-    period: "2014 – 2016",
-    title: "Storekeeper",
-    org: "Gulf Technical Construction Company · Dubai",
-    detail:
-      "Material receiving, storage, and issuing on construction projects, working inside Oracle JD Edwards. This is where the ground-level reality of material control was learned first-hand.",
+      "Responsible for the full life of a material — from take-off, through purchase order, into the warehouse on a goods receipt, and out to site on an issue. Day-to-day work covers procurement coordination, warehouse and inventory control, data reconciliation, operational reporting, and audit preparation across EPC and construction projects. This is where the ground-level reality of material control was learned first-hand.",
   },
 ];
 

@@ -72,10 +72,9 @@ export default function AboutPage() {
               My work started from direct involvement in operations. For years I
               have been responsible for material control, inventory, procurement
               coordination, assets, manpower records, operational reporting, and
-              the practical requirements of project sites — first as a
-              storekeeper, then as a senior material controller handling data and
-              reporting. When numbers did not reconcile, that was my problem.
-              When an audit came, that was my desk.
+              the practical requirements of project sites — as a senior material
+              controller handling data and reporting. When numbers did not
+              reconcile, that was my problem. When an audit came, that was my desk.
             </p>
             <h2 className="eyebrow pt-4">How the systems started</h2>
             <p>
