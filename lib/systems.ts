@@ -1,200 +1,303 @@
+export type SystemStatus =
+  | "Active Development"
+  | "Working Prototype"
+  | "Internal Tool"
+  | "Research & Development"
+  | "Operational Concept"
+  | "Private Workspace"
+  | "Independently Developed";
+
 export type System = {
   slug: string;
-  code: string; // nameplate code, like plant equipment tags
+  code: string; // nameplate code
   name: string;
   domain: string;
-  status: "In production" | "Active build" | "Client delivery";
+  status: SystemStatus;
+  /** True when this is an independent / personal project, not a deployed company product. */
+  independent: boolean;
   summary: string;
   problem: string;
-  architecture: string[];
+  /** Intended users. */
+  users: string;
+  /** Key capabilities. */
+  capabilities: string[];
   technologies: string[];
-  impact: string[];
-  lessons: string;
+  /** What is currently working. */
+  working: string[];
+  /** What remains under development. */
+  roadmap: string[];
+  /** Honest context / lessons. */
+  note?: string;
   schematic: "flow" | "grid" | "shield" | "ledger" | "pulse" | "stack" | "gears";
+};
+
+/** Badge tone per status — kept neutral, never implying live production. */
+export const statusTone: Record<SystemStatus, "dev" | "proto" | "concept" | "neutral"> = {
+  "Active Development": "dev",
+  "Working Prototype": "proto",
+  "Internal Tool": "neutral",
+  "Research & Development": "concept",
+  "Operational Concept": "concept",
+  "Private Workspace": "neutral",
+  "Independently Developed": "neutral",
 };
 
 export const systems: System[] = [
   {
-    slug: "adc-enterprise-intelligence",
-    code: "SYS-01",
-    name: "ADC Enterprise Intelligence Platform",
-    domain: "EPC Material Control · Dubai",
-    status: "In production",
+    slug: "junmarvi-systems-workspace",
+    code: "WS-00",
+    name: "Junmarvi Systems Workspace",
+    domain: "Development & Governance Foundation",
+    status: "Private Workspace",
+    independent: true,
     summary:
-      "A Control Tower for EPC material operations — every MTO, PO, GRN, and material issue visible on one screen, reconciled continuously instead of at audit time.",
+      "A structured development and governance workspace used to organize multiple systems, shared standards, security controls, documentation, reusable components, and development workflows. The Workspace is the foundation; individual applications are solutions built on top of it.",
     problem:
-      "On large EPC projects, material truth lives in fragments: MTOs in engineering files, POs in the ERP, GRNs in the warehouse, and issues in site records. Reconciling them manually consumes days every month, and discrepancies surface only when an audit forces them to. Management sees the supply chain in the rear-view mirror.",
-    architecture: [
-      "Control Tower web application giving management a single live view across projects — commitments, receipts, issues, and open exposure.",
-      "Reconciliation engine that continuously matches MTO quantities to PO commitments, PO lines to GRN receipts, and receipts to site issues.",
-      "Weekly Audit System that converts month-end fire drills into a standing cadence: exceptions are raised, owned, and closed inside the week they occur.",
-      "Warehouse KPI layer feeding receiving performance, stock accuracy, and issue turnaround into executive dashboards.",
+      "Building several independent systems at once creates drift: inconsistent structure, scattered documentation, and security decisions made ad hoc. Without a shared foundation, every new project reinvents conventions and quietly accumulates risk.",
+    users:
+      "Myself as the developer — and any future collaborator who needs a consistent, documented starting point.",
+    capabilities: [
+      "Shared engineering conventions and documentation standards that new projects inherit.",
+      "A single source of truth for standards, referenced by AI-assisted development workflows so context stays consistent between machines and sessions.",
+      "Security and data-boundary rules that define where secrets live and what tooling may touch.",
+      "Reusable components and patterns carried across the systems built on top of the Workspace.",
     ],
-    technologies: ["Laravel", "Next.js", "Supabase", "PostgreSQL", "Power Query", "IIS / Windows Server"],
-    impact: [
-      "Month-end reconciliation collapsed from a multi-day manual exercise into a continuously current ledger.",
-      "Discrepancies are caught in the week they happen, while the delivery note is still findable and the supplier still answers the phone.",
-      "Management stopped asking 'what is our real material position?' — the Control Tower answers it before the question is asked.",
+    technologies: ["Git", "GitHub", "Markdown standards", "Documentation workflows"],
+    working: [
+      "Documented engineering and security standards in active use across current projects.",
+      "A consistent project structure and workflow reused when starting new systems.",
     ],
-    lessons:
-      "The hardest part was not the software — it was encoding ten years of material-control judgement into rules a machine can execute. Every matching tolerance and exception path in the engine came from a real dispute I had personally untangled.",
+    roadmap: [
+      "Broader library of reusable components and templates.",
+      "Tighter, more automated checks that a project follows the documented standards.",
+    ],
+    note:
+      "This is an internal foundation, not a commercial platform. It exists to keep independent work organized, consistent, and defensible.",
+    schematic: "stack",
+  },
+  {
+    slug: "adc-control-tower",
+    code: "SYS-01",
+    name: "ADC Control Tower",
+    domain: "Operations Intelligence & Reporting",
+    status: "Active Development",
+    independent: true,
+    summary:
+      "An independently developed operations intelligence and reporting system, developed from real operational reporting and control requirements in EPC and construction operations.",
+    problem:
+      "On large EPC projects, material and operational data lives in fragments — take-offs, purchase orders, receipts, and site issues sit in separate places. Reconciling them by hand is slow, and discrepancies usually surface late. The intent of this system is to bring that information into one organized, reportable view.",
+    users:
+      "Material controllers, procurement coordinators, and operations staff who need a clearer view of commitments, receipts, and open items.",
+    capabilities: [
+      "Structured views across inventory, procurement, assets, manpower, and project monitoring.",
+      "Data reconciliation logic that compares committed, received, and issued quantities.",
+      "Operational reporting designed for a quick read of exceptions and open exposure.",
+      "Report structures based on real material-control practice rather than a generic template.",
+    ],
+    technologies: ["Laravel", "PHP", "PostgreSQL", "Next.js", "Power Query"],
+    working: [
+      "Core data model and reconciliation logic for the material-control workflow.",
+      "Reporting views built from real operational reporting requirements.",
+    ],
+    roadmap: [
+      "Broader coverage across assets and manpower modules.",
+      "More automated data ingestion and validation.",
+      "Hardening and testing before any organizational rollout.",
+    ],
+    note:
+      "This is an independent project developed from practical requirements. It is not presented as an officially deployed, company-wide system.",
     schematic: "flow",
   },
   {
     slug: "sentinel-os",
     code: "SYS-02",
     name: "Sentinel OS",
-    domain: "AI Governance & Security Operations",
-    status: "In production",
+    domain: "Security Operations & Repository Assessment",
+    status: "Active Development",
+    independent: true,
     summary:
-      "A personal enterprise operating system for AI-directed engineering — documented standards, security rules, and workflow governance that make AI output auditable instead of improvised.",
+      "An independently developed security operations and repository assessment system focused on practical source-code scanning, secrets detection, configuration checks, governance, controlled scan modes, and centralized findings.",
     problem:
-      "AI can write code faster than any team, but speed without governance produces systems nobody can trust in an enterprise. Working across an office environment and personal projects, I needed AI assistance that followed the same discipline an enterprise expects of its engineers: standards, security boundaries, and traceable decisions.",
-    architecture: [
-      "A documented standards layer — engineering conventions, AI workflow rules, and security policies — that every project inherits before a line of code is written.",
-      "A thin router configuration that points AI tooling to a single source of truth in versioned documentation, so context never drifts between machines or sessions.",
-      "Security rulebook governing secrets, data boundaries, and what AI tooling may and may not touch across office and personal environments.",
-      "A knowledge-processing framework that turns raw research and project history into structured, reusable engineering knowledge.",
+      "AI-assisted development moves quickly, and it is easy for secrets, weak configuration, or ungoverned changes to slip into a repository. I wanted a practical, controlled way to scan my own repositories and keep findings in one place — with clear operator control over what a scan is allowed to do.",
+    users:
+      "Myself as the operator, scanning my own repositories; the design is intended to generalize to small teams that want repository-level checks.",
+    capabilities: [
+      "Repository scanning with secrets detection and basic static analysis.",
+      "Configuration and dependency checks.",
+      "Controlled scan modes — SAFE, VALIDATE, and ACTIVE — with explicit scan authorization.",
+      "Scan history and a centralized findings dashboard.",
+      "Local operator controls, with GitHub workflow integration as a design goal.",
     ],
-    technologies: ["Claude Code", "GitHub", "Markdown standards", "Security Engineering", "Knowledge Systems"],
-    impact: [
-      "Every system on this page was built under the same governed workflow — consistent structure, consistent security posture, consistent documentation.",
-      "New projects start with the discipline already installed rather than reinvented.",
-      "AI output became reviewable and repeatable — the difference between using AI and directing it.",
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "GitHub workflows"],
+    working: [
+      "Repository scanning, secrets detection, and a findings view in a working prototype state.",
+      "Scan-mode structure (SAFE / VALIDATE / ACTIVE) and scan authorization.",
     ],
-    lessons:
-      "Guardrails have to exist before the agents do. Writing the rules after the first incident is how enterprises end up distrusting AI; writing them first is how you earn the right to move fast.",
+    roadmap: [
+      "Deeper static analysis and dependency checks.",
+      "More complete scan history and reporting.",
+      "GitHub workflow integration beyond local operation.",
+    ],
+    note:
+      "Sentinel OS is a practical, independently developed security tool — not a commercial SOC platform. Completed, prototype, and planned capabilities are distinguished above.",
     schematic: "shield",
   },
   {
-    slug: "claire-motorparts",
+    slug: "education-intelligence",
     code: "SYS-03",
-    name: "Claire Motorparts",
-    domain: "Trading & Inventory Operations",
-    status: "Client delivery",
+    name: "Education Intelligence (SEIP)",
+    domain: "Privacy-conscious Education Tooling",
+    status: "Operational Concept",
+    independent: true,
     summary:
-      "An inventory and sales operations platform for a motorparts trading business — stock truth, movement history, and margin visibility for a company that ran on notebooks.",
+      "A privacy-conscious, teacher-controlled education system concept — designed around teacher ownership, local-first workflows, deterministic processing before any AI, and controlled review of student information.",
     problem:
-      "A parts trading business lives or dies on knowing what is on the shelf, what it cost, and what it sells for. Paper records meant stock counts disagreed with reality, fast-moving items ran out silently, and margin per line was a feeling rather than a number.",
-    architecture: [
-      "Central parts catalog with supplier references, cost history, and selling prices as the single record of truth.",
-      "Stock movement ledger — every receipt, sale, and adjustment logged against the part, so counts reconcile to transactions.",
-      "Reorder intelligence that watches velocity per item and flags stockouts before they happen.",
-      "Owner dashboard translating daily transactions into margin, dead stock, and cash-in-inventory views.",
+      "Education tools often move student data into systems teachers do not control, with AI applied to raw records. The intent here is the opposite: keep the teacher in control, process deterministically first, and treat student privacy as a design constraint rather than an afterthought.",
+    users:
+      "Teachers who need to manage records and reporting while retaining ownership of their students' data.",
+    capabilities: [
+      "Teacher ownership of data and workflow, with local-first processing.",
+      "Deterministic processing before any AI step.",
+      "Optional AI assistance, applied only after masking and with teacher approval.",
+      "Masking and controlled review of student information.",
     ],
-    technologies: ["Laravel", "PHP", "PostgreSQL", "Next.js"],
-    impact: [
-      "Physical counts now reconcile against a transaction trail instead of memory.",
-      "Fast movers stopped running out unnoticed; dead stock became visible enough to act on.",
-      "Pricing decisions moved from instinct to per-line margin data.",
+    technologies: ["Next.js", "TypeScript", "Local-first data"],
+    working: [
+      "The concept, data-handling principles, and workflow design.",
+      "Early prototyping of deterministic processing and masking.",
     ],
-    lessons:
-      "Small businesses do not need smaller software — they need the same material-control discipline as an EPC contractor, delivered without the ERP overhead.",
-    schematic: "ledger",
-  },
-  {
-    slug: "seip-education-platform",
-    code: "SYS-04",
-    name: "SEIP Education Platform",
-    domain: "Education Operations",
-    status: "Active build",
-    summary:
-      "A structured learning platform that treats education delivery as an operations problem — enrollment, progress, and content managed with the same rigor as a supply chain.",
-    problem:
-      "Education programs fail operationally before they fail academically: enrollment tracked in spreadsheets, learner progress invisible between assessments, and content scattered across drives. Administrators spend their time reconstructing state instead of teaching.",
-    architecture: [
-      "Enrollment and cohort management as a first-class workflow, not a spreadsheet export.",
-      "Progress telemetry per learner and per module, surfacing who is stalled while intervention is still cheap.",
-      "Versioned content library so material updates propagate without breaking running cohorts.",
-      "Administrator dashboard modeled on operations control rooms — exceptions first, averages second.",
+    roadmap: [
+      "A working teacher-facing prototype.",
+      "Optional, masked AI assistance behind explicit approval.",
     ],
-    technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
-    impact: [
-      "Program state is answerable in one screen instead of a weekend of spreadsheet archaeology.",
-      "Stalled learners surface as exceptions in-week rather than as surprises at assessment time.",
-      "Content updates ship centrally instead of by email attachment.",
-    ],
-    lessons:
-      "Control-room thinking transfers cleanly outside industry: any domain where people ask 'where do we actually stand?' is a candidate for a control tower.",
+    note:
+      "This is an ongoing concept and prototype. It is not deployed at any school, district, or national level.",
     schematic: "grid",
   },
   {
-    slug: "operational-analytics-suite",
-    code: "SYS-05",
-    name: "Operational Analytics Suite",
-    domain: "Executive Intelligence · Construction",
-    status: "In production",
+    slug: "operational-analytics",
+    code: "TL-04",
+    name: "Operational Analytics",
+    domain: "Reporting & Decision Support",
+    status: "Internal Tool",
+    independent: true,
     summary:
-      "CEO-grade analytics built on real operational data — including a diesel consumption intelligence platform that turned fuel from a line-item expense into a managed asset.",
+      "Refreshable operational dashboards and reports built with Excel and Power Query — turning routine operational data into a faster read for day-to-day decisions.",
     problem:
-      "Construction executives receive reports, not intelligence. Fleet fuel, equipment utilization, and consumption trends arrive as monthly totals — too aggregated to act on, too late to matter. The data exists; the decisions it should drive do not.",
-    architecture: [
-      "Strictly data-driven executive dashboards — every figure traceable to source records, nothing decorative.",
-      "Consumption baselines per asset class, with deviation flags when a machine or site drifts from its expected burn.",
-      "Trend and comparison views built for a five-minute executive read: exceptions, direction, and exposure.",
-      "Lightweight delivery — fast-loading web dashboards that run anywhere, no BI license per viewer.",
+      "Operational data often arrives as monthly totals that are too aggregated to act on. I built these reports to get closer to the actual movement in the data — consumption, utilization, and trends — without waiting for a formal report to be assembled by hand.",
+    users:
+      "Operations and reporting staff who need refreshable numbers instead of manually rebuilt spreadsheets.",
+    capabilities: [
+      "Refreshable dashboards driven directly from operational data sources.",
+      "Consumption and trend views built for a quick read.",
+      "Comparison across periods without rebuilding the spreadsheet each time.",
     ],
-    technologies: ["JavaScript", "HTML/CSS", "Power BI", "Power Query", "Excel automation"],
-    impact: [
-      "Diesel consumption anomalies became visible per asset instead of buried in fleet totals.",
-      "Executive review moved from reading monthly PDFs to interrogating live trends.",
-      "The dashboard became the meeting agenda — discussion starts at the exceptions.",
+    technologies: ["Excel", "Power Query", "SQL"],
+    working: [
+      "Refreshable reports used in real operational reporting work.",
+      "Trend and comparison views from routine data.",
     ],
-    lessons:
-      "Executives do not want more data; they want fewer, harder numbers. The discipline is in what you leave off the screen.",
+    roadmap: [
+      "Migration of selected reports into web dashboards.",
+      "Wider automation of data refresh.",
+    ],
+    note:
+      "These are practical internal tools I built for my own operational reporting work.",
     schematic: "pulse",
   },
   {
-    slug: "warehouse-intelligence",
-    code: "SYS-06",
-    name: "Warehouse Intelligence",
-    domain: "Logistics & Inventory Control",
-    status: "In production",
+    slug: "warehouse-reporting",
+    code: "TL-05",
+    name: "Warehouse Reporting",
+    domain: "Inventory & Material Control",
+    status: "Internal Tool",
+    independent: true,
     summary:
-      "KPI instrumentation for warehouse operations — receiving performance, stock accuracy, and issue turnaround measured continuously and reported without manual effort.",
+      "Reporting for warehouse and inventory work — receiving, stock accuracy, and issue turnaround measured from transaction data instead of assembled by hand.",
     problem:
-      "Warehouses generate thousands of transactions and almost no insight. Receiving delays, mis-locations, and slow issue turnaround are felt on site long before they appear in any report — because the report is compiled by hand, monthly, by someone with a day job.",
-    architecture: [
-      "KPI engine computing receiving cycle time, GRN latency, stock accuracy, and issue turnaround directly from transaction data.",
-      "Exception queues for aging receipts, un-issued reservations, and count variances — worked as lists, not discovered in audits.",
-      "Trend dashboards per warehouse and per project, comparable across periods without re-building spreadsheets.",
-      "Zero-touch reporting: the numbers exist because the transactions exist.",
+      "Warehouses generate many transactions and little insight. Receiving delays, mis-locations, and slow issue turnaround are felt on site long before they show up in a report — because the report is compiled by hand, late.",
+    users:
+      "Warehouse and material-control staff who need performance figures without extra manual work.",
+    capabilities: [
+      "Reporting on receiving, stock accuracy, and issue turnaround from transaction data.",
+      "Exception lists for aging receipts and count variances.",
+      "Period-over-period comparison without rebuilding spreadsheets.",
     ],
-    technologies: ["Power Query", "Power BI", "Excel automation", "Supabase"],
-    impact: [
-      "Warehouse performance conversations now start from shared numbers instead of competing anecdotes.",
-      "Aging receipts and stuck issues surface daily rather than at month-end.",
-      "Report compilation time went to zero — the KPI layer is a byproduct of normal work.",
+    technologies: ["Excel", "Power Query", "SQL"],
+    working: [
+      "Reports derived directly from warehouse transaction data.",
+      "Exception views for aging and variance items.",
     ],
-    lessons:
-      "The best KPI system is invisible to the people it measures. If the warehouse team has to feed the dashboard, the dashboard is already wrong.",
+    roadmap: [
+      "Consolidation into the ADC Control Tower reporting views.",
+      "More automated data refresh.",
+    ],
+    note:
+      "A practical internal reporting tool built for real warehouse work.",
     schematic: "stack",
   },
   {
-    slug: "erp-automation",
-    code: "SYS-07",
-    name: "ERP Automation",
-    domain: "Process Automation · Procurement",
-    status: "In production",
+    slug: "reconciliation-automation",
+    code: "TL-06",
+    name: "Reconciliation Automation",
+    domain: "Procurement & Data Reconciliation",
+    status: "Internal Tool",
+    independent: true,
     summary:
-      "The connective tissue between ERP records and operational reality — automated extraction, matching, and reconciliation that removes the human middleware from procurement workflows.",
+      "Automation for extracting and reconciling procurement data — matching commitments, receipts, and invoices with documented tolerance rules instead of manual copy-paste.",
     problem:
-      "Every ERP promises integration and every operations team still runs on exports. The gap between what the ERP records and what the business needs to know is bridged manually — copy, paste, VLOOKUP, repeat — by exactly the people who should be analyzing instead of assembling.",
-    architecture: [
-      "Automated extraction pipelines pulling PO, GRN, and invoice data on schedule instead of on request.",
-      "Matching logic implementing 3-way match discipline — commitments to receipts to invoices — with tolerance rules from real procurement practice.",
-      "Reconciliation outputs that land as exception lists with owners, not as raw variance dumps.",
-      "Python and Power Query engines that survive personnel changes because the logic is documented, versioned, and readable.",
+      "The gap between what an ERP records and what operations needs to know is usually bridged by hand — export, paste, lookup, repeat. That work consumes exactly the people who should be analyzing instead of assembling.",
+    users:
+      "Procurement and material-control staff responsible for matching and reconciliation.",
+    capabilities: [
+      "Extraction of procurement data on a schedule instead of on request.",
+      "Matching logic with tolerance rules drawn from real procurement practice.",
+      "Reconciliation outputs as exception lists rather than raw variance dumps.",
     ],
-    technologies: ["Python", "Power Query", "Excel automation", "PostgreSQL"],
-    impact: [
-      "Recurring reconciliation work that consumed skilled hours weekly now runs unattended.",
-      "3-way match exceptions reach the right owner with context attached, cutting resolution loops.",
-      "Institutional logic moved out of one person's head and into versioned, documented code.",
+    technologies: ["Power Query", "Excel", "SQL"],
+    working: [
+      "Matching and reconciliation logic used in real reconciliation work.",
+      "Exception output with context attached.",
     ],
-    lessons:
-      "Automation is an act of documentation. The moment the matching rules were written down for a machine, the whole team finally agreed on what the rules actually were.",
+    roadmap: [
+      "Reusable extraction pipelines across more data sources.",
+      "Migration of the matching logic into the Control Tower.",
+    ],
+    note:
+      "Automation here is really an act of documentation — writing the matching rules down so a tool can run them.",
     schematic: "gears",
+  },
+  {
+    slug: "claire-motorparts",
+    code: "APP-07",
+    name: "Claire Motorparts",
+    domain: "Trading & Inventory",
+    status: "Working Prototype",
+    independent: true,
+    summary:
+      "An inventory and sales prototype for a motorparts trading business — stock truth, movement history, and margin visibility for a business that ran on notebooks.",
+    problem:
+      "A parts trading business lives or dies on knowing what is on the shelf, what it cost, and what it sells for. Paper records mean counts disagree with reality, fast movers run out silently, and margin per line is a feeling rather than a number.",
+    users:
+      "A small parts trading business — owner and counter staff.",
+    capabilities: [
+      "Central parts catalog with supplier references, cost history, and selling prices.",
+      "Stock movement ledger so counts reconcile to transactions.",
+      "Reorder signals based on movement velocity.",
+      "An owner view of margin and dead stock.",
+    ],
+    technologies: ["Laravel", "PHP", "PostgreSQL", "Next.js"],
+    working: [
+      "Catalog and stock-movement model in a working prototype.",
+      "Basic margin and reorder views.",
+    ],
+    roadmap: [
+      "Hardening and real-data testing before day-to-day business use.",
+      "Reporting and backup workflows.",
+    ],
+    note:
+      "An independently developed prototype. It is not presented as a completed commercial deployment.",
+    schematic: "ledger",
   },
 ];
 

@@ -2,13 +2,22 @@
 export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const site = {
-  name: "Junmarvi Tampac",
-  title: "Junmarvi Tampac — Enterprise Solutions Architect & AI-Directed Engineer",
+  /** Brand mark. */
+  brand: "Junmarvi",
+  /** Full name of the person behind the practice. */
+  person: "Junmarvi Tampac",
+  tagline: "Systems, Operations, Data, Security, and Digital Solutions",
+  /** Primary professional positioning — deliberately grounded. */
+  role: "Systems and Operations Solutions Developer",
+  supporting:
+    "I design and develop practical digital systems based on real operational requirements.",
+  title:
+    "Junmarvi — Systems, Operations, Data, Security, and Digital Solutions",
   description:
-    "Enterprise Solutions Architect, AI-Directed Software Engineer, and ERP & Operations Intelligence Specialist. A decade inside EPC and construction operations, now building the AI-powered platforms that solve those exact problems.",
-  // Injected by next.config.mjs: NEXT_PUBLIC_SITE_URL > Pages URL > localhost.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  location: "Dubai, United Arab Emirates",
+    "Junmarvi is the independent systems practice of Junmarvi Tampac, a Systems and Operations Solutions Developer. Practical digital systems for operations, reporting, data, security, and workflow improvement — built on hands-on material-control and operations experience.",
+  // Injected by next.config.mjs: NEXT_PUBLIC_SITE_URL > Pages URL > Vercel fallback.
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://junmarvi.vercel.app",
+  location: "United Arab Emirates",
   email: "jtampac@proton.me",
   emailAlt: "jtampac@yahoo.com",
   // Kept out of the public repo — set NEXT_PUBLIC_CONTACT_PHONE in .env.local (inlined at build time).
@@ -16,55 +25,104 @@ export const site = {
   github: "https://github.com/jtampac",
   linkedin: "https://www.linkedin.com/in/junmarvitampac",
   availability:
-    "Open to enterprise systems consulting, operations-intelligence builds, and AI platform engagements across the GCC.",
+    "Open to discussing operations systems, data and reporting, workflow automation, security and governance tooling, business websites, and internal tools.",
 };
 
-export const roles = [
-  "Enterprise Solutions Architect",
-  "AI-Directed Software Engineer",
-  "ERP & Operations Intelligence Specialist",
+/** Optional supporting descriptors — never stack more than two beside the name. */
+export const descriptors = [
+  "Operations Systems",
+  "Data & Reporting",
+  "Workflow Automation",
+  "Security & Governance",
+  "Digital Solutions",
 ];
 
-/** Live-feel operations telemetry shown in the signature status rail. */
-export const telemetry = [
-  { label: "RECONCILIATION ENGINE", value: "ONLINE", state: "online" },
-  { label: "3-WAY MATCH", value: "PO · GRN · INVOICE", state: "online" },
-  { label: "MTO → PO → GRN → ISSUE", value: "TRACED", state: "online" },
-  { label: "WEEKLY AUDIT", value: "PASSED", state: "online" },
-  { label: "WAREHOUSE KPI FEED", value: "STREAMING", state: "online" },
-  { label: "SENTINEL OS", value: "GUARDRAILS ACTIVE", state: "online" },
-  { label: "ANOMALY WATCH", value: "1 FLAG UNDER REVIEW", state: "alert" },
-  { label: "CONTROL TOWER", value: "ALL PROJECTS VISIBLE", state: "online" },
+/**
+ * Homepage capability areas. These describe the kind of work the practice does —
+ * not a claim that each is already a commercial product at enterprise scale.
+ */
+export const capabilities: { title: string; blurb: string; items: string[] }[] = [
+  {
+    title: "Operations Systems",
+    blurb:
+      "Tools for inventory, procurement, assets, manpower, project monitoring, reconciliation, and operational reporting.",
+    items: ["Inventory", "Procurement", "Assets", "Manpower", "Reconciliation", "Reporting"],
+  },
+  {
+    title: "Data & Reporting",
+    blurb:
+      "Structured data, databases, dashboards, reconciliation tools, refreshable reports, and decision-support information.",
+    items: ["Databases", "Dashboards", "Refreshable reports", "Reconciliation", "Decision support"],
+  },
+  {
+    title: "Security & Governance",
+    blurb:
+      "Practical controls for repository scanning, documentation, access management, system standards, audit trails, and development governance.",
+    items: ["Repo scanning", "Standards", "Access controls", "Audit trails", "Governance"],
+  },
+  {
+    title: "Digital Solutions",
+    blurb:
+      "Business websites, internal tools, workflow automation, system prototypes, integrations, and customized applications.",
+    items: ["Websites", "Internal tools", "Automation", "Prototypes", "Integrations"],
+  },
+];
+
+/** Approach — problem first, technology second. */
+export const approach = {
+  lead:
+    "I begin with the actual operational problem before selecting the technology. Solutions are designed around the organization's existing workflow, available resources, data, priorities, and users.",
+  principle:
+    "Not every problem requires a large or complicated system. The objective is to build something practical, understandable, maintainable, and useful to the people doing the work.",
+};
+
+/**
+ * Practice signals shown in the header rail — the practice's working domains and
+ * principles, stated as capabilities, not as live production telemetry.
+ */
+export const signals = [
+  "Operations Systems",
+  "Data & Reporting",
+  "Security & Governance",
+  "Digital Solutions",
+  "Inventory & Material Control",
+  "Workflow Automation",
+  "Local-first & Controlled Data",
+  "AI-assisted Development",
 ] as const;
 
+/**
+ * Tools and technologies used in current work. Framed as what is worked with —
+ * not a claim of mastery in every item.
+ */
 export const stack: { group: string; blurb: string; items: string[] }[] = [
   {
-    group: "Application platforms",
-    blurb: "Production web platforms built for operations teams, not demos.",
-    items: ["Next.js", "React", "TypeScript", "JavaScript", "Laravel", "PHP"],
+    group: "Application development",
+    blurb: "Web applications and internal tools for operations work.",
+    items: ["PHP", "Laravel", "Next.js", "React", "TypeScript", "JavaScript"],
   },
   {
-    group: "Data & intelligence",
-    blurb: "Single sources of truth, reconciliation, and executive reporting.",
-    items: ["PostgreSQL", "SQL Server", "Supabase", "Power BI", "Power Query", "ePROMIS ERP", "JD Edwards"],
+    group: "Data & reporting",
+    blurb: "Structured data, reconciliation, and refreshable reports.",
+    items: ["PostgreSQL", "SQL", "Excel", "Power Query"],
   },
   {
-    group: "AI engineering",
-    blurb: "AI-directed development with governance, standards, and audit trails.",
-    items: ["Claude Code", "OpenAI", "AI Agents", "Knowledge Systems"],
+    group: "Delivery & governance",
+    blurb: "Version control, containers where appropriate, and documented standards.",
+    items: ["Git", "GitHub", "Docker", "Documented standards"],
   },
   {
-    group: "Delivery & security",
-    blurb: "Shipping, versioning, and protecting enterprise workloads.",
-    items: ["Docker", "GitHub", "Security Engineering", "IIS / Windows Server"],
+    group: "AI-assisted workflows",
+    blurb: "AI supports the development process; it is not the product claim.",
+    items: ["AI-assisted coding", "Documentation workflows", "Review discipline"],
   },
 ];
 
+/** Current areas of focus — grounded, defensible descriptions of active work. */
 export const currentFocus = [
-  "Enterprise AI",
-  "Operational Intelligence",
-  "Security Operations",
-  "Automation",
-  "Knowledge Systems",
-  "Large Language Models",
+  "Operations systems",
+  "Data & reporting",
+  "Workflow automation",
+  "Security & governance",
+  "Business applications",
 ];
