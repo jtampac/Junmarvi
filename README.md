@@ -19,7 +19,7 @@ npm run typecheck    # tsc --noEmit
 ## Configuration
 
 - **Site URL / canonical + OG metadata** — driven by `NEXT_PUBLIC_SITE_URL`.
-  - Local/Vercel fallback: `https://junmarvi.vercel.app`
+  - Default (Vercel / local) fallback: `https://junmarvi.com`
   - GitHub Pages: `https://jtampac.github.io/Junmarvi`
   - Set `NEXT_PUBLIC_SITE_URL=https://junmarvi.com` on the host once the custom
     domain is live. `app/sitemap.ts` and `app/robots.ts` follow it automatically.

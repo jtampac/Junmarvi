@@ -15,8 +15,8 @@ export const site = {
     "Junmarvi — Systems, Operations, Data, Security, and Digital Solutions",
   description:
     "Junmarvi is the independent systems practice of Junmarvi Tampac, a Systems and Operations Solutions Developer. Practical digital systems for operations, reporting, data, security, and workflow improvement — built on hands-on material-control and operations experience.",
-  // Injected by next.config.mjs: NEXT_PUBLIC_SITE_URL > Pages URL > Vercel fallback.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://junmarvi.vercel.app",
+  // Injected by next.config.mjs: NEXT_PUBLIC_SITE_URL > Pages URL > production domain.
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://junmarvi.com",
   location: "United Arab Emirates",
   email: "jtampac@proton.me",
   emailAlt: "jtampac@yahoo.com",
