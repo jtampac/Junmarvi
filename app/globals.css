@@ -235,32 +235,21 @@ body.cursor-custom * {
   object-fit: cover;
 }
 
-/* single small blue neon dot travelling around the photo edge */
-.edge-dot {
+/* neon dot that runs along the hoodie outline traced over the photo */
+.hoodie-trace {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #cfe6ff;
-  transform: translate(-50%, -50%);
-  box-shadow:
-    0 0 6px 1px rgba(77, 163, 255, 0.95),
-    0 0 14px 4px rgba(77, 163, 255, 0.7),
-    0 0 26px 8px rgba(77, 163, 255, 0.4);
-  animation: edgeRun 6s linear infinite;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  overflow: visible;
 }
-@keyframes edgeRun {
-  0%   { top: 0%;   left: 0%; }
-  25%  { top: 0%;   left: 100%; }
-  50%  { top: 100%; left: 100%; }
-  75%  { top: 100%; left: 0%; }
-  100% { top: 0%;   left: 0%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .edge-dot { animation: none; top: 0; left: 0; }
+.hoodie-dot {
+  fill: #cfe6ff;
+  filter:
+    drop-shadow(0 0 3px rgba(77, 163, 255, 0.95))
+    drop-shadow(0 0 8px rgba(77, 163, 255, 0.75))
+    drop-shadow(0 0 18px rgba(77, 163, 255, 0.45));
 }
 
 /* article prose */
