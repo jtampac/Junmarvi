@@ -24,18 +24,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "RF Builders & Supply",
-    type: "Business website",
-    role: "Sole designer and developer",
-    status: "Completed Website",
-    contribution:
-      "Designed and built a multi-page business website for a general engineering and construction contractor — services, portfolio, and company information.",
-    tech: ["Next.js", "HTML/CSS", "JavaScript"],
-    evidence: "Live site available on request.",
-    accent: "kawa",
-    initials: "RF",
-  },
-  {
     name: "Black Pearl Capital",
     type: "Brand website",
     role: "Sole designer and developer",
@@ -58,18 +46,6 @@ export const projects: Project[] = [
     evidence: "Available on request.",
     accent: "kawa",
     initials: "SP",
-  },
-  {
-    name: "Cylingas",
-    type: "Corporate web presence",
-    role: "Designer and developer",
-    status: "Independent Project",
-    contribution:
-      "A capability-led corporate website for an industrial manufacturer — structured so procurement teams can evaluate before they call.",
-    tech: ["HTML/CSS", "JavaScript"],
-    evidence: "Available on request.",
-    accent: "pulse",
-    initials: "CY",
   },
 ];
 
