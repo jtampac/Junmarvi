@@ -3,9 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --font-display: "Instrument Serif";
-  --font-sans: "Instrument Sans";
-  --font-mono: "IBM Plex Mono";
+  --font-display: "Sora";
+  --font-sans: "Inter";
+  --font-mono: "JetBrains Mono";
+}
+
+/* Sora is a geometric sans; display headings read best a touch heavier, and
+   accent emphasis uses colour/weight rather than synthetic italics. */
+.font-display {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.font-display em {
+  font-style: normal;
 }
 
 html {
@@ -205,173 +215,52 @@ body.cursor-custom * {
   .cursor-ring { display: none; }
 }
 
-/* ---------- developer-terminal portrait ---------- */
-.dev-portrait {
-  padding: 0;
-  overflow: hidden;
-}
-.dev-portrait-bar {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  border-bottom: 1px solid var(--tw-line, rgba(148, 166, 204, 0.14));
-  border-color: rgba(148, 166, 204, 0.14);
-  padding: 0.6rem 0.85rem;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.dev-portrait-dots {
-  display: inline-flex;
-  gap: 0.35rem;
-}
-.dev-portrait-dots i {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: 1px solid rgba(148, 166, 204, 0.28);
-}
-.dev-portrait-file { color: #5e6b85; }
-.dev-portrait-flag {
-  margin-left: auto;
-  color: #4da3ff;
-}
-
-.dev-portrait-stage {
-  position: relative;
-  perspective: 900px;
-}
-.dev-portrait-inner {
+/* ---------- portrait: clean photo with a neon dot running the edge ---------- */
+.portrait-frame {
   position: relative;
   aspect-ratio: 4 / 5;
-  overflow: hidden;
-  background: #0d1424;
-  transform: rotateX(var(--tiltX, 0deg)) rotateY(var(--tiltY, 0deg));
-  transition: transform 0.25s ease;
-  transform-style: preserve-3d;
+  border-radius: 12px;
 }
-
-.dev-portrait-img {
+.portrait-media {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 166, 204, 0.16);
+  background: #0d1424;
+}
+.portrait-media img {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  /* technical treatment by default */
-  filter: grayscale(1) contrast(1.06) brightness(1.02);
-  transition: filter 0.55s ease, transform 0.55s ease;
 }
-/* duotone tint */
-.dev-portrait-duo {
+
+/* single small blue neon dot travelling around the photo edge */
+.edge-dot {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(150deg, rgba(4, 6, 12, 0.55), rgba(77, 163, 255, 0.5));
-  mix-blend-mode: overlay;
-  transition: opacity 0.55s ease;
-}
-/* faint scanlines + grid */
-.dev-portrait-grid {
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(4, 6, 12, 0.22) 0px,
-    rgba(4, 6, 12, 0.22) 1px,
-    transparent 1px,
-    transparent 3px
-  );
-  opacity: 0.5;
-  transition: opacity 0.55s ease;
-}
-/* moving scanline sweep */
-.dev-portrait-scan {
-  position: absolute;
+  top: 0;
   left: 0;
-  right: 0;
-  height: 16%;
-  top: -16%;
-  background: linear-gradient(
-    to bottom,
-    rgba(77, 163, 255, 0),
-    rgba(77, 163, 255, 0.35),
-    rgba(77, 163, 255, 0)
-  );
-  animation: portraitScan 5s linear infinite;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #cfe6ff;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 6px 1px rgba(77, 163, 255, 0.95),
+    0 0 14px 4px rgba(77, 163, 255, 0.7),
+    0 0 26px 8px rgba(77, 163, 255, 0.4);
+  animation: edgeRun 6s linear infinite;
+  pointer-events: none;
 }
-/* vignette sinks the light photo background into the dark card */
-.dev-portrait-vignette {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    120% 100% at 50% 28%,
-    transparent 42%,
-    rgba(4, 6, 12, 0.9) 100%
-  );
-  transition: opacity 0.55s ease;
-}
-
-/* hover / focus reveals the real photo */
-.dev-portrait-stage:hover .dev-portrait-img,
-.dev-portrait-stage:focus-within .dev-portrait-img {
-  filter: grayscale(0) contrast(1) brightness(1);
-}
-.dev-portrait-stage:hover .dev-portrait-duo,
-.dev-portrait-stage:focus-within .dev-portrait-duo {
-  opacity: 0;
-}
-.dev-portrait-stage:hover .dev-portrait-grid,
-.dev-portrait-stage:focus-within .dev-portrait-grid {
-  opacity: 0.2;
-}
-.dev-portrait-stage:hover .dev-portrait-vignette,
-.dev-portrait-stage:focus-within .dev-portrait-vignette {
-  opacity: 0.55;
-}
-
-/* corner brackets */
-.pbracket {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border: 1px solid rgba(77, 163, 255, 0.55);
-  animation: bracketPulse 3.2s ease-in-out infinite;
-}
-.pbracket-tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
-.pbracket-tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
-.pbracket-bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
-.pbracket-br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
-
-/* terminal caption over the photo */
-.dev-portrait-caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.9rem 0.9rem 0.8rem;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 11px;
-  background: linear-gradient(to top, rgba(4, 6, 12, 0.92), transparent);
-}
-.dev-portrait-out {
-  display: block;
-  margin-top: 0.25rem;
-  color: #94a1bb;
-}
-
-@keyframes portraitScan {
-  0% { top: -16%; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-@keyframes bracketPulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.85; }
+@keyframes edgeRun {
+  0%   { top: 0%;   left: 0%; }
+  25%  { top: 0%;   left: 100%; }
+  50%  { top: 100%; left: 100%; }
+  75%  { top: 100%; left: 0%; }
+  100% { top: 0%;   left: 0%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .dev-portrait-scan { display: none; }
-  .pbracket { animation: none; opacity: 0.6; }
+  .edge-dot { animation: none; top: 0; left: 0; }
 }
 
 /* article prose */

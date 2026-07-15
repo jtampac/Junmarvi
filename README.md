@@ -83,6 +83,6 @@ statistics, credentials, or evidence links.
 - **Palette** — near-black navy inks (`ink-950…700`), restrained blue
   `pulse #4DA3FF`, green `kawa #75E44B`, red `alert #FF5C5C` reserved for
   security/system flags. Status dots use neutral tones and no glow.
-- **Type** — Instrument Serif (display) · Instrument Sans (body) ·
-  IBM Plex Mono (labels, terminal).
+- **Type** — Sora (display) · Inter (body) · JetBrains Mono (labels,
+  terminal).
 - Reduced-motion is respected globally; keyboard focus is always visible.

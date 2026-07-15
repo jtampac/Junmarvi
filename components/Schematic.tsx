@@ -37,7 +37,7 @@ function Frame({ children, label }: { children: React.ReactNode; label: string }
 const Node = ({ x, y, w = 64, label, tone = LINE }: { x: number; y: number; w?: number; label: string; tone?: string }) => (
   <g>
     <rect x={x} y={y} width={w} height="26" rx="6" fill="rgba(13,20,36,0.9)" stroke={tone} strokeWidth="1" />
-    <text x={x + w / 2} y={y + 17} textAnchor="middle" fontSize="9" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="1">
+    <text x={x + w / 2} y={y + 17} textAnchor="middle" fontSize="9" fontFamily="JetBrains Mono, monospace" fill={TEXT} letterSpacing="1">
       {label}
     </text>
   </g>
@@ -67,7 +67,7 @@ export default function Schematic({ kind }: { kind: string }) {
           <Wire d="M232 66 V130" tone={LINE} />
           <Wire d="M315 66 V143 H240" tone={LINE} />
           <Dot cx={330} cy={143} />
-          <text x={20} y={185} fontSize="9" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="2">CONTROL TOWER · SCHEMATIC</text>
+          <text x={20} y={185} fontSize="9" fontFamily="JetBrains Mono, monospace" fill={TEXT} letterSpacing="2">CONTROL TOWER · SCHEMATIC</text>
           <Dot cx={175} cy={181} tone={BLUE} />
         </Frame>
       );
@@ -75,14 +75,14 @@ export default function Schematic({ kind }: { kind: string }) {
       return (
         <Frame label="Governance schematic: standards guarding AI workflow">
           <path d="M180 30 L230 48 V95 C230 130 205 152 180 162 C155 152 130 130 130 95 V48 Z" fill="rgba(13,20,36,0.9)" stroke={BLUE} strokeWidth="1" />
-          <text x={180} y={92} textAnchor="middle" fontSize="9" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="1">STANDARDS</text>
-          <text x={180} y={108} textAnchor="middle" fontSize="9" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="1">SECURITY</text>
+          <text x={180} y={92} textAnchor="middle" fontSize="9" fontFamily="JetBrains Mono, monospace" fill={TEXT} letterSpacing="1">STANDARDS</text>
+          <text x={180} y={108} textAnchor="middle" fontSize="9" fontFamily="JetBrains Mono, monospace" fill={TEXT} letterSpacing="1">SECURITY</text>
           <Node x={20} y={80} w={70} label="AI AGENT" />
           <Node x={270} y={80} w={70} label="PRODUCTION" />
           <Wire d="M90 93 H130" /><Wire d="M230 93 H270" tone={GREEN} />
           <Dot cx={180} cy={40} tone={GREEN} />
           <Dot cx={60} cy={130} tone={RED} />
-          <text x={72} y={134} fontSize="8" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="1">UNGOVERNED — BLOCKED</text>
+          <text x={72} y={134} fontSize="8" fontFamily="JetBrains Mono, monospace" fill={TEXT} letterSpacing="1">UNGOVERNED — BLOCKED</text>
         </Frame>
       );
     case "ledger":
@@ -97,7 +97,7 @@ export default function Schematic({ kind }: { kind: string }) {
           ))}
           <Node x={262} y={72} w={80} label="STOCK TRUTH" tone={BLUE} />
           <Wire d="M234 85 H262" />
-          <text x={24} y={180} fontSize="9" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="2">EVERY COUNT RECONCILES</text>
+          <text x={24} y={180} fontSize="9" fontFamily="JetBrains Mono, monospace" fill={TEXT} letterSpacing="2">EVERY COUNT RECONCILES</text>
         </Frame>
       );
     case "grid":
@@ -114,7 +114,7 @@ export default function Schematic({ kind }: { kind: string }) {
               </g>
             );
           })}
-          <text x={28} y={172} fontSize="9" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="2">EXCEPTIONS FIRST · AVERAGES SECOND</text>
+          <text x={28} y={172} fontSize="9" fontFamily="JetBrains Mono, monospace" fill={TEXT} letterSpacing="2">EXCEPTIONS FIRST · AVERAGES SECOND</text>
         </Frame>
       );
     case "pulse":
@@ -129,8 +129,8 @@ export default function Schematic({ kind }: { kind: string }) {
             fill="none" stroke={LINE} strokeWidth="1" strokeDasharray="4 5"
           />
           <Dot cx={300} cy={70} tone={RED} />
-          <text x={252} y={56} fontSize="8" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="1">DEVIATION FLAG</text>
-          <text x={20} y={182} fontSize="9" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="2">BASELINE VS ACTUAL BURN</text>
+          <text x={252} y={56} fontSize="8" fontFamily="JetBrains Mono, monospace" fill={TEXT} letterSpacing="1">DEVIATION FLAG</text>
+          <text x={20} y={182} fontSize="9" fontFamily="JetBrains Mono, monospace" fill={TEXT} letterSpacing="2">BASELINE VS ACTUAL BURN</text>
           <Dot cx={140} cy={120} /><Dot cx={220} cy={96} />
         </Frame>
       );
@@ -140,11 +140,11 @@ export default function Schematic({ kind }: { kind: string }) {
           {[0, 1, 2].map((i) => (
             <rect key={i} x={40 + i * 10} y={110 - i * 26} width={180} height={22} rx="5" fill="rgba(13,20,36,0.9)" stroke={i === 2 ? BLUE : LINE} />
           ))}
-          <text x={130} y={72} fontSize="8" fontFamily="IBM Plex Mono, monospace" fill={TEXT} textAnchor="middle" letterSpacing="1">TRANSACTIONS</text>
+          <text x={130} y={72} fontSize="8" fontFamily="JetBrains Mono, monospace" fill={TEXT} textAnchor="middle" letterSpacing="1">TRANSACTIONS</text>
           <Node x={272} y={58} w={68} label="KPI" tone={GREEN} />
           <Wire d="M240 72 H272" tone={GREEN} />
           {["GRN LATENCY", "STOCK ACCURACY", "ISSUE TURNAROUND"].map((t, i) => (
-            <text key={t} x={40} y={158 + i * 14} fontSize="8" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="1">
+            <text key={t} x={40} y={158 + i * 14} fontSize="8" fontFamily="JetBrains Mono, monospace" fill={TEXT} letterSpacing="1">
               ▸ {t}
             </text>
           ))}
@@ -162,8 +162,8 @@ export default function Schematic({ kind }: { kind: string }) {
           <Node x={145} y={130} w={80} label="EXCEPTIONS" />
           <Wire d="M305 76 V143 H225" tone={GREEN} />
           <circle cx={110} cy={143} r="14" fill="none" stroke={LINE} />
-          <text x={110} y={147} textAnchor="middle" fontSize="9" fontFamily="IBM Plex Mono, monospace" fill={TEXT}>⟳</text>
-          <text x={20} y={186} fontSize="9" fontFamily="IBM Plex Mono, monospace" fill={TEXT} letterSpacing="2">RUNS UNATTENDED · ON SCHEDULE</text>
+          <text x={110} y={147} textAnchor="middle" fontSize="9" fontFamily="JetBrains Mono, monospace" fill={TEXT}>⟳</text>
+          <text x={20} y={186} fontSize="9" fontFamily="JetBrains Mono, monospace" fill={TEXT} letterSpacing="2">RUNS UNATTENDED · ON SCHEDULE</text>
           <Dot cx={330} cy={182} />
         </Frame>
       );
