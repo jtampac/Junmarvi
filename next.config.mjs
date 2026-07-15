@@ -4,10 +4,11 @@
 const isPages = process.env.GITHUB_PAGES === "true";
 const basePath = isPages ? "/Junmarvi" : "";
 
-// Canonical origin for metadata: explicit env var > Pages URL > localhost.
+// Canonical origin for metadata: explicit env var > Pages URL > Vercel fallback.
+// Set NEXT_PUBLIC_SITE_URL=https://junmarvi.com once the custom domain is live.
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  (isPages ? "https://jtampac.github.io/Junmarvi" : "http://localhost:3000");
+  (isPages ? "https://jtampac.github.io/Junmarvi" : "https://junmarvi.vercel.app");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

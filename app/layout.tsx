@@ -8,26 +8,29 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: site.title,
-    template: "%s — Junmarvi Tampac",
+    template: "%s — Junmarvi",
   },
   description: site.description,
+  applicationName: "Junmarvi",
+  authors: [{ name: site.person }],
+  creator: site.person,
   keywords: [
-    "Enterprise Solutions Architect",
-    "AI Engineer",
-    "Operations Intelligence",
-    "Business Intelligence",
-    "ERP Specialist",
-    "Software Engineer",
-    "Full Stack Developer",
-    "Construction Technology",
-    "Enterprise Dashboard",
-    "Operational Analytics",
+    "operations systems developer",
+    "custom operations tools",
+    "inventory and reporting systems",
+    "data and workflow solutions",
+    "security and governance tools",
+    "digital solutions",
+    "internal business applications",
+    "practical system development",
   ],
+  alternates: { canonical: "/" },
   openGraph: {
     title: site.title,
     description: site.description,
     url: site.url,
-    siteName: "Junmarvi Tampac",
+    siteName: "Junmarvi",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
@@ -36,6 +39,28 @@ export const metadata: Metadata = {
     description: site.description,
   },
   robots: { index: true, follow: true },
+};
+
+/** Modest structured data — a person and their practice. No inflated claims. */
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  mainEntity: {
+    "@type": "Person",
+    name: site.person,
+    jobTitle: site.role,
+    description: site.supporting,
+    url: site.url,
+    knowsAbout: [
+      "Operations systems",
+      "Material control",
+      "Data and reporting",
+      "Workflow automation",
+      "Security and governance",
+      "Web development",
+    ],
+    sameAs: [site.github, site.linkedin],
+  },
 };
 
 export const viewport: Viewport = {
@@ -54,6 +79,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-ink-800 focus:px-4 focus:py-2 focus:font-mono focus:text-xs"

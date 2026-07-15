@@ -23,3 +23,6 @@ $RECYCLE.BIN/
 # machine-specific startup launchers (Windows scheduled task)
 start-site.cmd
 start-site-hidden.vbs
+
+# local editor / assistant tooling
+.claude/

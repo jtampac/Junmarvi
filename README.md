@@ -1,7 +1,8 @@
-# Junmarvi Tampac — Digital Headquarters
+# Junmarvi — Systems, Operations, Data, Security, and Digital Solutions
 
-Premium personal brand website for an Enterprise Systems Architect and
-AI-Directed Engineer. Next.js 16 (App Router) · React 19 · TypeScript ·
+The website of Junmarvi Tampac, a **Systems and Operations Solutions Developer**.
+An independent systems practice — practical digital systems built around real
+operational needs. Next.js 16 (App Router) · React 19 · TypeScript ·
 TailwindCSS · Framer Motion.
 
 ## Run
@@ -12,55 +13,76 @@ npm run dev          # http://localhost:3000
 npm run build        # native production build (Vercel / localhost `npm start`)
 npm run build:pages  # static export for GitHub Pages → out/ (base path /Junmarvi)
 npm start            # serve the `npm run build` output
+npm run typecheck    # tsc --noEmit
 ```
 
-## Before going live — 5-minute checklist
+## Configuration
 
-1. **Portrait** — drop your professional photo at
-   `public/images/portrait.jpg` (4:5 ratio, ~1200×1500px). Until then, an
-   architect's nameplate renders in its place (never a broken image).
-2. **`lib/site.ts`** — update `url`, `email`, and `linkedin` to your real
-   production domain and handles. Everything else on the site reads from
-   this one file.
-3. **System screenshots (optional)** — each system currently ships with a
-   custom SVG schematic as its identity mark. To add real product
-   screenshots, place them in `public/images/systems/` and extend the
-   system brief page (`app/systems/[slug]/page.tsx`) with a gallery block.
-4. **Deploy** — Vercel is the primary host: import the repo (zero config,
-   native build) and set `NEXT_PUBLIC_SITE_URL` to the production domain so
-   canonical/OG metadata resolve correctly. GitHub Pages is the backup:
-   every push to `main` triggers `.github/workflows/deploy-pages.yml`,
-   which publishes the static export to https://jtampac.github.io/Junmarvi/
-   (repo setting: Settings → Pages → Source → GitHub Actions). Self-host:
-   `npm run build && npm start` behind a reverse proxy.
+- **Site URL / canonical + OG metadata** — driven by `NEXT_PUBLIC_SITE_URL`.
+  - Local/Vercel fallback: `https://junmarvi.vercel.app`
+  - GitHub Pages: `https://jtampac.github.io/Junmarvi`
+  - Set `NEXT_PUBLIC_SITE_URL=https://junmarvi.com` on the host once the custom
+    domain is live. `app/sitemap.ts` and `app/robots.ts` follow it automatically.
+- **Phone (private)** — never committed. Set `NEXT_PUBLIC_CONTACT_PHONE` in
+  `.env.local` (gitignored, inlined at build time). If it is unset, the phone
+  contact option is hidden entirely.
+- **Portrait** — drop a professional photo at `public/images/portrait.jpg`
+  (4:5 ratio, ~1200×1500px). Until then a nameplate renders in its place — the
+  site never shows a broken image.
+
+## Content is centralized
+
+All copy lives in three files. Edit these, not the pages.
+
+```
+lib/
+  site.ts      Brand, positioning, capabilities, approach, signals, stack, focus
+  systems.ts   Independent systems — each with status, users, capabilities,
+               what works now, and what remains under development
+  content.ts   Projects, experience (employment + independent work), articles
+```
 
 ## Structure
 
 ```
 app/
-  page.tsx               Home — hero, thesis, counters, systems, stack, focus
-  about/                 Operations-first story
-  systems/               Systems registry + per-system briefs ([slug])
-  experience/            Capability timeline
-  projects/              Client & brand web work
+  page.tsx               Home — hero, markers, capability areas, approach, systems, tools
+  about/                 Background, focus, development approach, education
+  systems/               Systems list + per-system briefs ([slug])
+  experience/            Professional employment vs independent systems work
+  projects/              Selected independent web & brand work
   insights/              Articles index + article pages ([slug])
-  contact/               Channels, availability, location
-components/              Nav, Footer, Reveal, Counter, TelemetryRail,
-                         TerminalCard, Schematic, PortraitFrame, PageHeader
-lib/
-  site.ts                Identity, telemetry, stack, current focus  ← edit me
-  systems.ts             All seven system case studies              ← edit me
-  content.ts             Projects, experience eras, articles        ← edit me
+  contact/               Channels, discussion areas, location
+  sitemap.ts robots.ts   SEO metadata routes (follow NEXT_PUBLIC_SITE_URL)
+components/              Nav, Footer, Reveal, SignalRail (TelemetryRail),
+                         TerminalCard, Schematic, PortraitFrame, PageHeader,
+                         StatusBadge
 ```
+
+## Content standard
+
+Every statement on the site is meant to be defensible in a real conversation,
+interview, or client meeting. Systems are labelled by honest maturity (Active
+Development, Working Prototype, Internal Tool, Operational Concept, Private
+Workspace) rather than claimed as in-production company products. No invented
+statistics, credentials, or evidence links.
+
+## Deploy
+
+- **Vercel (primary)** — import the repo (zero config, native build). Set
+  `NEXT_PUBLIC_SITE_URL` to the production domain and
+  `NEXT_PUBLIC_CONTACT_PHONE` if the phone option is wanted.
+- **GitHub Pages (backup)** — every push to `main` runs
+  `.github/workflows/deploy-pages.yml`, publishing the static export to
+  `https://jtampac.github.io/Junmarvi/` (Settings → Pages → Source → GitHub
+  Actions).
+- **Self-host** — `npm run build && npm start` behind a reverse proxy.
 
 ## Design system
 
-- **Palette** — near-black navy inks (`ink-950…700`), semi-neon blue
-  `pulse #4DA3FF`, Kawasaki green `kawa #75E44B`, red `alert #FF5C5C`
-  reserved for security/system flags only.
+- **Palette** — near-black navy inks (`ink-950…700`), restrained blue
+  `pulse #4DA3FF`, green `kawa #75E44B`, red `alert #FF5C5C` reserved for
+  security/system flags. Status dots use neutral tones and no glow.
 - **Type** — Instrument Serif (display) · Instrument Sans (body) ·
-  IBM Plex Mono (telemetry, labels, terminal).
-- **Signature** — the operations telemetry rail: live-feel status ticker
-  speaking real material-control language (MTO → PO → GRN → issue,
-  3-way match, weekly audit).
+  IBM Plex Mono (labels, terminal).
 - Reduced-motion is respected globally; keyboard focus is always visible.
