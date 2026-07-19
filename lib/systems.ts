@@ -76,9 +76,9 @@ export const systems: System[] = [
     schematic: "stack",
   },
   {
-    slug: "adc-control-tower",
+    slug: "materials-control-tower",
     code: "SYS-01",
-    name: "ADC Control Tower",
+    name: "Materials Control Tower",
     domain: "Operations Intelligence & Reporting",
     status: "Active Development",
     independent: true,
@@ -175,101 +175,40 @@ export const systems: System[] = [
     schematic: "grid",
   },
   {
-    slug: "operational-analytics",
+    slug: "operations-reporting-toolkit",
     code: "TL-04",
-    name: "Operational Analytics",
-    domain: "Reporting & Decision Support",
+    name: "Operations Reporting Toolkit",
+    domain: "Reporting · Reconciliation · Warehouse Data",
     status: "Internal Tool",
     independent: true,
     summary:
-      "Refreshable operational dashboards and reports built with Excel and Power Query — turning routine operational data into a faster read for day-to-day decisions.",
+      "A set of practical Excel, Power Query, and SQL tools built for my own operational work — refreshable reports, warehouse and inventory measures, and procurement reconciliation with documented matching rules.",
     problem:
-      "Operational data often arrives as monthly totals that are too aggregated to act on. I built these reports to get closer to the actual movement in the data — consumption, utilization, and trends — without waiting for a formal report to be assembled by hand.",
+      "Operational data usually arrives too aggregated to act on, and the gap between what a system records and what the work needs is bridged by hand — export, paste, lookup, repeat. These tools were built to replace that manual assembly in my own day-to-day reporting and reconciliation work.",
     users:
-      "Operations and reporting staff who need refreshable numbers instead of manually rebuilt spreadsheets.",
+      "Operations, warehouse, and procurement staff who need refreshable numbers and exception lists instead of manually rebuilt spreadsheets.",
     capabilities: [
-      "Refreshable dashboards driven directly from operational data sources.",
-      "Consumption and trend views built for a quick read.",
-      "Comparison across periods without rebuilding the spreadsheet each time.",
-    ],
-    technologies: ["Excel", "Power Query", "SQL"],
-    working: [
-      "Refreshable reports used in real operational reporting work.",
-      "Trend and comparison views from routine data.",
-    ],
-    roadmap: [
-      "Migration of selected reports into web dashboards.",
-      "Wider automation of data refresh.",
-    ],
-    note:
-      "These are practical internal tools I built for my own operational reporting work.",
-    schematic: "pulse",
-  },
-  {
-    slug: "warehouse-reporting",
-    code: "TL-05",
-    name: "Warehouse Reporting",
-    domain: "Inventory & Material Control",
-    status: "Internal Tool",
-    independent: true,
-    summary:
-      "Reporting for warehouse and inventory work — receiving, stock accuracy, and issue turnaround measured from transaction data instead of assembled by hand.",
-    problem:
-      "Warehouses generate many transactions and little insight. Receiving delays, mis-locations, and slow issue turnaround are felt on site long before they show up in a report — because the report is compiled by hand, late.",
-    users:
-      "Warehouse and material-control staff who need performance figures without extra manual work.",
-    capabilities: [
-      "Reporting on receiving, stock accuracy, and issue turnaround from transaction data.",
-      "Exception lists for aging receipts and count variances.",
+      "Refreshable reports and trend views driven directly from operational data sources.",
+      "Warehouse measures — receiving, stock accuracy, and issue turnaround — from transaction data.",
+      "Procurement matching with tolerance rules drawn from real practice, output as exception lists with context.",
       "Period-over-period comparison without rebuilding spreadsheets.",
     ],
     technologies: ["Excel", "Power Query", "SQL"],
     working: [
-      "Reports derived directly from warehouse transaction data.",
-      "Exception views for aging and variance items.",
+      "Refreshable reporting, warehouse measures, and reconciliation logic used in real operational work.",
+      "Exception views for aging receipts, count variances, and matching mismatches.",
     ],
     roadmap: [
-      "Consolidation into the ADC Control Tower reporting views.",
-      "More automated data refresh.",
+      "Migration of selected reports and matching logic into the Materials Control Tower.",
+      "Wider automation of data refresh.",
     ],
     note:
-      "A practical internal reporting tool built for real warehouse work.",
-    schematic: "stack",
-  },
-  {
-    slug: "reconciliation-automation",
-    code: "TL-06",
-    name: "Reconciliation Automation",
-    domain: "Procurement & Data Reconciliation",
-    status: "Internal Tool",
-    independent: true,
-    summary:
-      "Automation for extracting and reconciling procurement data — matching commitments, receipts, and invoices with documented tolerance rules instead of manual copy-paste.",
-    problem:
-      "The gap between what an ERP records and what operations needs to know is usually bridged by hand — export, paste, lookup, repeat. That work consumes exactly the people who should be analyzing instead of assembling.",
-    users:
-      "Procurement and material-control staff responsible for matching and reconciliation.",
-    capabilities: [
-      "Extraction of procurement data on a schedule instead of on request.",
-      "Matching logic with tolerance rules drawn from real procurement practice.",
-      "Reconciliation outputs as exception lists rather than raw variance dumps.",
-    ],
-    technologies: ["Power Query", "Excel", "SQL"],
-    working: [
-      "Matching and reconciliation logic used in real reconciliation work.",
-      "Exception output with context attached.",
-    ],
-    roadmap: [
-      "Reusable extraction pipelines across more data sources.",
-      "Migration of the matching logic into the Control Tower.",
-    ],
-    note:
-      "Automation here is really an act of documentation — writing the matching rules down so a tool can run them.",
+      "These are working internal tools, not products. They exist because my own workload demanded them — which is also why they work.",
     schematic: "gears",
   },
   {
     slug: "claire-motorparts",
-    code: "APP-07",
+    code: "APP-05",
     name: "Claire Motorparts",
     domain: "Trading & Inventory",
     status: "Working Prototype",

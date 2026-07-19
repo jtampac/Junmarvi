@@ -9,7 +9,7 @@ import { systems } from "@/lib/systems";
 export const metadata: Metadata = {
   title: "Systems",
   description:
-    "Independently developed systems and tools — the Junmarvi Systems Workspace, ADC Control Tower, Sentinel OS, Education Intelligence, and operational reporting tools. Each classified honestly by maturity.",
+    "Independently developed systems and tools — the Junmarvi Systems Workspace, Materials Control Tower, Sentinel OS, Education Intelligence, and operations reporting tools. Each classified honestly by maturity.",
 };
 
 export default function SystemsPage() {
@@ -18,7 +18,7 @@ export default function SystemsPage() {
       <PageHeader
         eyebrow="Systems"
         title="Independently developed systems and tools."
-        lede="Each entry is an independent project, prototype, or internal tool — classified honestly by its current stage. Open any nameplate for the problem, intended users, status, what works now, and what is still under development."
+        lede="Each entry is an independent project, prototype, or internal tool — classified honestly by its current stage. Open any nameplate for the problem, intended users, status, what works now, and what is still under development. Walkthroughs and demonstrations are available on request."
       />
 
       <section className="shell grid gap-6 pb-24 md:grid-cols-2">
