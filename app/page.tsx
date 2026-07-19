@@ -43,7 +43,7 @@ export default function Home() {
               <p className="mt-6 font-display text-2xl text-body md:text-3xl">
                 Junmarvi<span className="text-pulse">.</span>
               </p>
-              <h1 className="mt-4 max-w-2xl font-display text-4xl leading-tight text-body md:text-5xl">
+              <h1 className="mt-4 max-w-2xl font-display text-3xl leading-tight text-body md:text-4xl">
                 Systems, Operations, Data, Security, and Digital Solutions
               </h1>
             </Reveal>
@@ -104,7 +104,7 @@ export default function Home() {
         <div className="shell py-24 md:py-28">
           <Reveal>
             <p className="eyebrow">What I build</p>
-            <h2 className="mt-5 max-w-3xl font-display text-4xl leading-tight text-body md:text-5xl">
+            <h2 className="mt-5 max-w-3xl font-display text-3xl leading-tight text-body md:text-4xl">
               Four areas of practical work
             </h2>
             <p className="mt-5 max-w-2xl leading-relaxed text-mist">
@@ -140,7 +140,7 @@ export default function Home() {
         <div className="shell grid gap-12 py-24 md:grid-cols-[0.9fr,1.1fr] md:py-28">
           <Reveal>
             <p className="eyebrow">Approach</p>
-            <h2 className="mt-5 font-display text-4xl leading-tight text-body md:text-5xl">
+            <h2 className="mt-5 font-display text-3xl leading-tight text-body md:text-4xl">
               Problem first.
               <br />
               Technology <em className="text-pulse">second.</em>
@@ -164,7 +164,7 @@ export default function Home() {
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
                 <p className="eyebrow">Selected systems</p>
-                <h2 className="mt-5 font-display text-4xl text-body md:text-5xl">
+                <h2 className="mt-5 font-display text-3xl text-body md:text-4xl">
                   Independent systems in progress
                 </h2>
               </div>
@@ -201,7 +201,7 @@ export default function Home() {
           <div>
             <Reveal>
               <p className="eyebrow">Tools & technologies</p>
-              <h2 className="mt-5 font-display text-4xl text-body md:text-5xl">
+              <h2 className="mt-5 font-display text-3xl text-body md:text-4xl">
                 What I work with
               </h2>
               <p className="mt-5 max-w-xl leading-relaxed text-mist">
@@ -247,7 +247,7 @@ export default function Home() {
         <div className="shell py-24 text-center md:py-28">
           <Reveal>
             <p className="eyebrow">Discuss a requirement</p>
-            <h2 className="mx-auto mt-5 max-w-3xl font-display text-4xl leading-tight text-body md:text-5xl">
+            <h2 className="mx-auto mt-5 max-w-3xl font-display text-3xl leading-tight text-body md:text-4xl">
               Have an operational problem worth solving?
             </h2>
             <p className="mx-auto mt-5 max-w-xl leading-relaxed text-mist">
