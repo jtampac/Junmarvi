@@ -40,10 +40,10 @@ export default function Home() {
               </p>
             </Reveal>
             <Reveal delay={0.08}>
-              <p className="mt-6 font-display text-5xl leading-none text-body md:text-6xl">
-                Junmarvi
+              <p className="mt-6 font-display text-2xl text-body md:text-3xl">
+                Junmarvi<span className="text-pulse">.</span>
               </p>
-              <h1 className="mt-5 max-w-2xl font-display text-3xl leading-tight text-body md:text-5xl">
+              <h1 className="mt-4 max-w-2xl font-display text-4xl leading-tight text-body md:text-5xl">
                 Systems, Operations, Data, Security, and Digital Solutions
               </h1>
             </Reveal>
