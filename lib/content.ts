@@ -18,6 +18,8 @@ export type Project = {
   tech: string[];
   /** What can be shown as proof. No fabricated links. */
   evidence: string;
+  /** Live URL — only set when the site is publicly reachable. */
+  url?: string;
   accent: "pulse" | "kawa";
   initials: string;
 };
@@ -37,13 +39,14 @@ export const projects: Project[] = [
   },
   {
     name: "Solomon Pagunsan",
-    type: "Professional profile website",
+    type: "Personal profile website",
     role: "Sole designer and developer",
-    status: "Independent Project",
+    status: "Completed Website",
     contribution:
-      "A personal professional website built around clear positioning and disciplined typography.",
+      "A personal profile site for a sugarcane farmer, inventor, and content creator in Negros Oriental — built around clear positioning and disciplined typography.",
     tech: ["Next.js", "HTML/CSS"],
-    evidence: "Available on request.",
+    evidence: "Live at solomonpagunsan.com.",
+    url: "https://solomonpagunsan.com",
     accent: "kawa",
     initials: "SP",
   },

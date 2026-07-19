@@ -65,6 +65,17 @@ export default function ProjectsPage() {
                     <dd className="text-mist">{p.evidence}</dd>
                   </div>
                 </dl>
+
+                {p.url && (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-caps text-pulse transition-colors hover:text-body"
+                  >
+                    Visit live site <span aria-hidden>↗</span>
+                  </a>
+                )}
               </div>
             </article>
           </Reveal>
