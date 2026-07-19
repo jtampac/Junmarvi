@@ -40,7 +40,7 @@ export default async function SystemBrief({ params }: { params: Promise<{ slug: 
               <span className="text-dim">Independent project</span>
             )}
           </div>
-          <h1 className="mt-6 max-w-4xl font-display text-4xl leading-[1.1] text-body md:text-5xl">
+          <h1 className="mt-6 max-w-4xl font-display text-3xl leading-tight text-body md:text-4xl">
             {s.name}
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-mist">{s.summary}</p>

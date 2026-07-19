@@ -13,7 +13,7 @@ export default function PageHeader({
     <div className="shell pb-16 pt-36 md:pb-20 md:pt-44">
       <Reveal>
         <p className="eyebrow">{eyebrow}</p>
-        <h1 className="mt-5 max-w-3xl font-display text-4xl leading-[1.1] text-body md:text-5xl">
+        <h1 className="mt-5 max-w-3xl font-display text-3xl leading-tight text-body md:text-4xl">
           {title}
         </h1>
         {lede && (

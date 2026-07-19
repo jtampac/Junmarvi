@@ -32,7 +32,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <span>{a.readingTime}</span>
             <span>By Junmarvi Tampac</span>
           </div>
-          <h1 className="mt-6 max-w-4xl font-display text-4xl leading-[1.1] text-body md:text-5xl">
+          <h1 className="mt-6 max-w-4xl font-display text-3xl leading-tight text-body md:text-4xl">
             {a.title}
           </h1>
         </Reveal>

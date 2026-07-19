@@ -40,7 +40,7 @@ export default function Home() {
               </p>
             </Reveal>
             <Reveal delay={0.08}>
-              <p className="mt-6 font-display text-2xl text-body md:text-3xl">
+              <p className="mt-6 font-display text-[26px] text-body md:text-[34px]">
                 Junmarvi<span className="text-pulse">.</span>
               </p>
               <h1 className="mt-4 max-w-2xl font-display text-3xl leading-tight text-body md:text-4xl">

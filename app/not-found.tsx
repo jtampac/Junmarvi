@@ -7,7 +7,7 @@ export default function NotFound() {
         <span className="status-dot alert" aria-hidden />
         404 · Record not found
       </p>
-      <h1 className="mt-6 max-w-2xl font-display text-4xl leading-[1.1] text-body md:text-5xl">
+      <h1 className="mt-6 max-w-2xl font-display text-3xl leading-tight text-body md:text-4xl">
         This entry does not exist in the registry.
       </h1>
       <p className="mt-6 max-w-xl text-lg leading-relaxed text-mist">
