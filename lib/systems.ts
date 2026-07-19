@@ -76,9 +76,9 @@ export const systems: System[] = [
     schematic: "stack",
   },
   {
-    slug: "materials-control-tower",
+    slug: "erp-operations-control-tower",
     code: "SYS-01",
-    name: "Materials Control Tower",
+    name: "ERP Operations Control Tower",
     domain: "Operations Intelligence & Reporting",
     status: "Active Development",
     independent: true,
@@ -199,7 +199,7 @@ export const systems: System[] = [
       "Exception views for aging receipts, count variances, and matching mismatches.",
     ],
     roadmap: [
-      "Migration of selected reports and matching logic into the Materials Control Tower.",
+      "Migration of selected reports and matching logic into the ERP Operations Control Tower.",
       "Wider automation of data refresh.",
     ],
     note:

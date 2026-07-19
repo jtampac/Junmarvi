@@ -9,7 +9,7 @@ import { systems } from "@/lib/systems";
 export const metadata: Metadata = {
   title: "Systems",
   description:
-    "Independently developed systems and tools — the Junmarvi Systems Workspace, Materials Control Tower, Sentinel OS, Education Intelligence, and operations reporting tools. Each classified honestly by maturity.",
+    "Independently developed systems and tools — the Junmarvi Systems Workspace, ERP Operations Control Tower, Sentinel OS, Education Intelligence, and operations reporting tools. Each classified honestly by maturity.",
 };
 
 export default function SystemsPage() {

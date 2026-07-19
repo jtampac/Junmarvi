@@ -85,7 +85,7 @@ export const independentWork: Role[] = [
     title: "Independent systems development",
     org: "Laravel · Next.js · PostgreSQL",
     detail:
-      "Independently developed systems — a Materials Control Tower for EPC material work, a security and repository-assessment tool (Sentinel OS), a privacy-conscious education concept, and inventory prototypes — organized under a shared development and governance workspace.",
+      "Independently developed systems — an ERP Operations Control Tower for EPC material work, a security and repository-assessment tool (Sentinel OS), a privacy-conscious education concept, and inventory prototypes — organized under a shared development and governance workspace.",
   },
   {
     period: "Ongoing",
